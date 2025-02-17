@@ -1,6 +1,6 @@
 # Configs and scripts for CS2  
 
-Attribution: some code is imported from 
+Attribution: some code is imported from [](https://github.com/gucu112/cs2-config/)
 
 Quickstart:  
 
