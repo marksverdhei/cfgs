@@ -15,6 +15,11 @@ Requirements: powershell (with admin rights), python3
 ```powershell
 . .\scripts\sync_cfg_video.ps1
 ```
+or in linux
+
+```sh
+. ./scripts/sync_cfg_video.sh
+```
 
 ## Video config  
 Configure video settings in `video_settings`. Make your own json file or use one of the default configs.    
