@@ -23,6 +23,7 @@ if (-not $VideoConfig) {
 
 $GameBasePath = Get-ItemPropertyValue -Path 'HKLM:\Software\WOW6432Node\Valve\CS2' -Name 'InstallPath'
 $GameConfigPath = Join-Path $GameBasePath 'game\csgo\cfg'
+$LegacyConfigPath = Join-Path $GameBasePath 'csgo\cfg'
 
 $UserSettingsPath = Join-Path $SteamBasePath 'userdata' 
 $UserSettingsPath = Join-Path $UserSettingsPath $SteamCurrentUser
@@ -37,6 +38,8 @@ Write-Verbose $UserSettingsPath -Verbose
 Write-Verbose "Performing the operation `"Update CS2 Config`" on target `"Item: $GameConfigPath`"." -Verbose
 
 Get-ChildItem -Path "cfgs\" -Filter "*.cfg" | Copy-Item -Destination $GameConfigPath -Recurse -Force -Verbose
+# If using CSGO (note, you may need to change the config as csgo and cs2 use different commands)
+Get-ChildItem -Path "cfgs\" -Filter "*.cfg" | Copy-Item -Destination $LegacyConfigPath -Recurse -Force -Verbose
 
 # Export environment variables
 [System.Environment]::SetEnvironmentVariable('CURRENT_USER', $SteamCurrentUser, [System.EnvironmentVariableTarget]::User)
